@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!--/*@thymesVar id="mouse" type="com.dariuszrychlik.specyfikacjasprzetowa.command.MouseCommand"*/-->
+    <title th:text="${mouse.typMyszy + ' Mouse Information '}">The Mouse details</title>
+</head>
+<body>
+<!--/*@thymesVar id="computer" type="com.specyfikacjasprzentowa1.demo.command.ComputerCommand"*/-->
+<!--/*@thymesVar id="monitor" type="com.specyfikacjasprzentowa1.demo.command.MonitorCommand"*/-->
+<!--/*@thymesVar id="mouse" type="com.specyfikacjasprzentowa1.demo.command.MouseCommand"*/-->
+<!--/*@thymesVar id="speakers" type="com.specyfikacjasprzentowa1.demo.command.SpeakersCommand"*/-->
+    <div class="container-fluid" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-4">
+                <div class="panel-group">
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h1 class="panel-title" th:text="${mouse.typMyszy}">Mouse name (name here)!</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h5><b>Typ Myszy:</b></h5>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 th:text="${mouse.typMyszy}">saf</h5>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5><b>Czułość Myszy:</b></h5>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 th:text="${mouse.czuloscMyszy}">saf</h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h5><b>Typ Posłączenia:</b></h5>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 th:text="${mouse.typPodlaczenia}">1234</h5>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5><b>Liczba Przycisków:</b></h5>
+                                </div>
+                                <div class="col-md-5">
+                                    <h5 th:text="${mouse.liczbaPrzyciskow}">1234</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Song Form</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--/*@thymesVar id="computer" type="com.specyfikacjasprzentowa1.demo.command.ComputerCommand"*/-->
+<!--/*@thymesVar id="monitor" type="com.specyfikacjasprzentowa1.demo.command.MonitorCommand"*/-->
+<!--/*@thymesVar id="mouse" type="com.specyfikacjasprzentowa1.demo.command.MouseCommand"*/-->
+<!--/*@thymesVar id="speakers" type="com.specyfikacjasprzentowa1.demo.command.SpeakersCommand"*/-->
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-3">
+            <form  th:object="${speakers}" th:action="@{/speakers/}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="pannel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h1 class="panel-title"><span th:text="*{id} != null ? 'Edit ' : 'New '"></span>Speakers Information</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Typ Zestawu:</label>
+                                    <label>
+                                        <input type="text" class="form-control" th:field="*{typZestawu}"/>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Moc Głośników:</label>
+                                    <label>
+                                        <input type="text" class="form-control" th:field="*{mocGlosnikow}"/>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label>Typ Podłączenia:</label>
+                                    <label>
+                                        <input type="text" class="form-control" th:field="*{typPodlaczenia}"/>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label>Nazwa Producenta:</label>
+                                    <label>
+                                        <input type="text" class="form-control" th:field="*{nazwaProducenta}"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
