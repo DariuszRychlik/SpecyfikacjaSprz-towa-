@@ -2,6 +2,7 @@ package com.specyfikacjasprzentowa1.demo.controllers;
 
 import com.specyfikacjasprzentowa1.demo.command.SpeakersCommand;
 import com.specyfikacjasprzentowa1.demo.converters.SpeakersCommandToSpeakers;
+import com.specyfikacjasprzentowa1.demo.model.Monitor;
 import com.specyfikacjasprzentowa1.demo.model.Speakers;
 import com.specyfikacjasprzentowa1.demo.repositories.ComputerRepository;
 import com.specyfikacjasprzentowa1.demo.repositories.MonitorRepository;
@@ -30,9 +31,8 @@ public class SpeakersController {
         this.speakersRepository = speakersRepository;
     }
 
-    @GetMapping
     @RequestMapping(value = {"/speakers" , "speakers/list"})
-    public String getMSpeakers(Model model) {
+    public String getSpeakers(Model model) {
         model.addAttribute("speakers", speakersRepository.findAll());
         return "speakers/list";
     }
@@ -53,16 +53,21 @@ public class SpeakersController {
 
     @GetMapping
     @RequestMapping("/speakers/new")
-    public String newSpeakers(Model model){
+    public String newSpeakers (Model model){
         model.addAttribute("speakers", new SpeakersCommand());
-        model.addAttribute("mouse", mouseRepository.findAll());
-        model.addAttribute("computer", computerRepository.findAll());
-        model.addAttribute("monitor" , monitorRepository.findAll());
+        //model.addAttribute("mouse", mouseRepository.findAll());
+        //model.addAttribute("computer", computerRepository.findAll());
+        //model.addAttribute("monitor" , monitorRepository.findAll());
         return "speakers/addedit";
     }
 
     @PostMapping("speakers")
     public String saveOrUpdate(@ModelAttribute SpeakersCommand command){
+        //Speakers detachedSpeakers = speakersCommandToSpeakers.convert(command);
+        //Speakers savedSpeakers = speakersRepository.save(detachedSpeakers);
+        //return "redirect:/speakers/" + savedSpeakers.getId() + "/show";
+
+
         Optional<Speakers> speakersOptional = speakersRepository.getSpeakersByTypZestawu(command.getTypZestawu());
 
         if (!speakersOptional.isPresent()) {
@@ -74,5 +79,7 @@ public class SpeakersController {
             System.out.println("Sorry, there's such speakers in db");
             return "redirect:/speakers/" + speakersOptional.get().getId() + "/show";
         }
+
+
     }
 }

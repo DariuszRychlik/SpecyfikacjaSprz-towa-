@@ -59,8 +59,8 @@ public class MouseController {
 
     @GetMapping
     @RequestMapping("/mouse/new")
-    public String newSpeakers(Model model){
-        model.addAttribute("mouse", new MonitorCommand());
+    public String newMouse(Model model){
+        model.addAttribute("mouse", new MouseCommand());
         return "mouse/addedit";
     }
 

@@ -6,6 +6,8 @@ import com.specyfikacjasprzentowa1.demo.converters.ComputerToComputerCommand;
 import com.specyfikacjasprzentowa1.demo.model.Computer;
 import com.specyfikacjasprzentowa1.demo.repositories.ComputerRepository;
 import com.specyfikacjasprzentowa1.demo.repositories.MonitorRepository;
+import com.specyfikacjasprzentowa1.demo.repositories.MouseRepository;
+import com.specyfikacjasprzentowa1.demo.repositories.SpeakersRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,7 @@ public class ComputerController {
     private final ComputerCommandToComputer computerCommandToComputer;
     private final ComputerToComputerCommand computerToComputerCommand;
 
-    public ComputerController(ComputerCommandToComputer computerCommandToComputer, ComputerToComputerCommand computerToComputerCommand, ComputerRepository computerRepository, MonitorRepository monitorRepository) {
+    public ComputerController(ComputerCommandToComputer computerCommandToComputer, ComputerToComputerCommand computerToComputerCommand, ComputerRepository computerRepository, MonitorRepository monitorRepository, SpeakersRepository speakersRepository, MouseRepository mouseRepository) {
         this.computerRepository = computerRepository;
         this.monitorRepository = monitorRepository;
         this.computerCommandToComputer = computerCommandToComputer;

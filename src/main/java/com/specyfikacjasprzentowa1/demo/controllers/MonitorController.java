@@ -36,8 +36,8 @@ public class MonitorController {
     }
 
     @GetMapping
-    @RequestMapping("/song/{id}/show")
-    public String getSongDetails(Model model, @PathVariable("id") Long id) {
+    @RequestMapping("/monitor/{id}/show")
+    public String getMonitorDetails(Model model, @PathVariable("id") Long id) {
         model.addAttribute("monitor", monitorRepository.findById(id).get());
         return "monitor/show";
     }
@@ -51,12 +51,12 @@ public class MonitorController {
     }
 
     @GetMapping
-    @RequestMapping("/song/new")
+    @RequestMapping("/monitor/new")
     public String newMonitor(Model model){
         model.addAttribute("monitor", new MonitorCommand());
-        model.addAttribute("mouse", mouseRepository.findAll());
-        model.addAttribute("computer", computerRepository.findAll());
-        model.addAttribute("speakers" , speakersRepository.findAll());
+       // model.addAttribute("mouse", mouseRepository.findAll());
+       // model.addAttribute("computer", computerRepository.findAll());
+        //model.addAttribute("speakers" , speakersRepository.findAll());
         return "monitor/addedit";
     }
 

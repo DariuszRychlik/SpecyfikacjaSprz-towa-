@@ -21,7 +21,7 @@ public class Speakers {
     private String nazwaProducenta;
 
     @ManyToMany
-    private Set<Mouse> mouses = new HashSet<>();
+    private Set<Computer> computer = new HashSet<>();
 
     public Speakers(){
     }
